@@ -1,6 +1,6 @@
 {
   "name": "igc-analyzer",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Analyze an IGC tracklog",
   "main": "dist/igc-analyzer.js",
   "scripts": {
