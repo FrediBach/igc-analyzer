@@ -1,0 +1,17 @@
+{
+  "name": "igc-analyzer",
+  "version": "1.0.0",
+  "description": "Analyze an IGC tracklog",
+  "main": "dist/igc-analyzer.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "build": "rollup -c",
+    "dev": "rollup watch"
+  },
+  "author": "Fredi Bach",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "simple-statistics": "^7.0.0"
+  }
+}
