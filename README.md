@@ -11,7 +11,7 @@ Installation:
 And than in your script:
 
 ```
-const IGCAnalyzer = require('./dist/igc-analyzer');
+const IGCAnalyzer = require('igc-analyzer');
 const fs = require('fs');
 
 const igcData = fs.readFileSync('test2.igc', 'utf8');
