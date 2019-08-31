@@ -61,12 +61,12 @@ export default class IGCAnalyzer {
 			'thermaling-duration' : 0,
 			'left-thermaling-duration' : 0,
 			'right-thermaling-duration' : 0,
-			'thermals' : [],
-			'upwinds' : [],
-			'sinks' : [],
-			'windspeeds' : [],
-			'bases' : [],
-			'general' : []
+			'thermals' : {},
+			'upwinds' : {},
+			'sinks' : {},
+			'windspeeds' : {},
+			'bases' : {},
+			'general' : {}
 		};
 		
 		this.route = {				// The route takeoff, landing and turnpoints
