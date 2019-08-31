@@ -27,14 +27,14 @@ export default class IGCAnalyzer {
 		
 		this.lines = []; 			// all lines in the igc file
 		this.fixes = []; 			// all gps fixes
-		this.metadata = []; 		// all the metadata found
+		this.metadata = {}; 		// all the metadata found
 		this.fixadditions = []; 	// all additional data to be found in a fix
 		
 		this.lastfix = []; 			// Last fix used to calculate new fix values
 		this.minStepDuration = 1;	// In seconds, duration between saved fixes
 		
 		this.thermals = [];			// All major thermals, with metadata
-		this.currentThermal = [];	// Data of the current thermal
+		this.currentThermal = {};	// Data of the current thermal
 		
 		this.upwinds = [];			// All major upwind (soaring) areas
 		this.currentUpwind = [];	// Current upwind area
