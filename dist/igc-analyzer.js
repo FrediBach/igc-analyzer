@@ -300,8 +300,10 @@ class IGCAnalyzer {
               this.currentThermal.climbrate = this.currentThermal.heightgain / this.currentThermal.duration;
               this.currentThermal.distance = this.distance(this.currentThermal.start.lat, this.currentThermal.start.lng, this.currentThermal.end.lat, this.currentThermal.end.lng, "K") * 1000;
               this.currentThermal.bearing = this.bearing(this.currentThermal.start.lat, this.currentThermal.start.lng, this.currentThermal.end.lat, this.currentThermal.end.lng);
+              if (this.currentThermal !== null) {
+                this.thermals.push(this.currentThermal);
+              }
 
-              this.thermals.push(this.currentThermal);
             }
 
           }
@@ -341,8 +343,10 @@ class IGCAnalyzer {
               this.currentUpwind.climbrate = this.currentUpwind.heightgain / this.currentUpwind.duration;
               this.currentUpwind.distance = this.distance(this.currentUpwind.start.lat, this.currentUpwind.start.lng, this.currentUpwind.end.lat, this.currentUpwind.end.lng, "K") * 1000;
               this.currentUpwindbearing = this.bearing(this.currentUpwind.start.lat, this.currentUpwind.start.lng, this.currentUpwind.end.lat, this.currentUpwind.end.lng);
+              if (this.currentUpwind !== null) {
+                this.upwinds.push(this.currentUpwind);
+              }
 
-              this.upwinds.push(this.currentUpwind);
 
             }
 
@@ -383,8 +387,10 @@ class IGCAnalyzer {
               this.currentSink.sinkrate = this.currentSink.heightlost / this.currentSink.duration * -1;
               this.currentSink.distance = this.distance(this.currentSink.start.lat, this.currentSink.start.lng, this.currentSink.end.lat, this.currentSink.end.lng, "K") * 1000;
               this.currentSink.bearing = this.bearing(this.currentSink.start.lat, this.currentSink.start.lng, this.currentSink.end.lat, this.currentSink.end.lng);
+              if (this.currentSink !== null) {
+                this.sinks.push(this.currentSink);
+              }
 
-              this.sinks.push(this.currentSink);
 
             }
 
@@ -810,7 +816,7 @@ class IGCAnalyzer {
       }
 
     }
-    //console.log(this.track);
+    console.log(JSON.stringify(this.thermals, null, 4));
     return {
       'metadata': this.metadata,
       'track': this.track,
