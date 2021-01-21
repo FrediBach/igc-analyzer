@@ -346,6 +346,7 @@ class IGCAnalyzer {
               this.currentUpwind.distance = this.distance(this.currentUpwind.start.lat, this.currentUpwind.start.lng, this.currentUpwind.end.lat, this.currentUpwind.end.lng, "K") * 1000;
               this.currentUpwindbearing = this.bearing(this.currentUpwind.start.lat, this.currentUpwind.start.lng, this.currentUpwind.end.lat, this.currentUpwind.end.lng);
               if (this.currentUpwind !== null) {
+
                 this.upwinds.push(this.currentUpwind);
               }
 
@@ -499,7 +500,7 @@ class IGCAnalyzer {
       }
 
       // Calculate thermal stats:
-
+      this.track.thermals = {};
       this.track.thermals.cnt = this.thermals.length;
 
       if (this.track.thermals.cnt > 0) {
@@ -574,7 +575,7 @@ class IGCAnalyzer {
       }
 
       // Calculate upwind stats:
-
+      this.track.upwinds = {};
       this.track.upwinds.cnt = this.upwinds.length;
 
       if (this.track.upwinds.cnt > 0) {
@@ -640,7 +641,7 @@ class IGCAnalyzer {
       }
 
       // Calculate sink stats:
-
+      this.track.sinks = {};
       this.track.sinks.cnt = this.sinks.length;
 
       if (this.track.sinks.cnt > 0) {
@@ -748,7 +749,7 @@ class IGCAnalyzer {
         }
 
       }
-
+      this.track.windspeeds = {};
       if (wspeeds.length > 0) {
         this.track.windspeeds['min-speed'] = ss.min(wspeeds);
         this.track.windspeeds['max-speed'] = ss.max(wspeeds);
@@ -772,7 +773,7 @@ class IGCAnalyzer {
         }
 
       }
-
+      this.track.bases = {};
       if (basealtitudes.length > 0) {
         this.track.bases['min-altitude'] = ss.min(basealtitudes);
         this.track.bases['max-altitude'] = ss.max(basealtitudes);
@@ -794,7 +795,7 @@ class IGCAnalyzer {
 
       let lost = 0;
       if (typeof this.track.sinks['sum-heightlost'] !== 'undefined') lost = this.track.sinks['sum-heightlost'];
-
+      this.track.general = {};
       if (lost > 0) {
         this.track.general['gain-vs-lost'] = (tgain + ugain) / lost;
       } else {
@@ -819,7 +820,8 @@ class IGCAnalyzer {
       }
 
     }
-    console.log(JSON.stringify(this.thermals[1], null, 4));
+    //console.log(JSON.stringify(this.track.thermals, null, 4));
+    //console.log(this.track.thermals);
     return {
       'metadata': this.metadata,
       'track': this.track,
