@@ -300,7 +300,9 @@ class IGCAnalyzer {
               this.currentThermal.climbrate = this.currentThermal.heightgain / this.currentThermal.duration;
               this.currentThermal.distance = this.distance(this.currentThermal.start.lat, this.currentThermal.start.lng, this.currentThermal.end.lat, this.currentThermal.end.lng, "K") * 1000;
               this.currentThermal.bearing = this.bearing(this.currentThermal.start.lat, this.currentThermal.start.lng, this.currentThermal.end.lat, this.currentThermal.end.lng);
+
               if (this.currentThermal !== null) {
+
                 this.thermals.push(this.currentThermal);
               }
 
@@ -387,6 +389,7 @@ class IGCAnalyzer {
               this.currentSink.sinkrate = this.currentSink.heightlost / this.currentSink.duration * -1;
               this.currentSink.distance = this.distance(this.currentSink.start.lat, this.currentSink.start.lng, this.currentSink.end.lat, this.currentSink.end.lng, "K") * 1000;
               this.currentSink.bearing = this.bearing(this.currentSink.start.lat, this.currentSink.start.lng, this.currentSink.end.lat, this.currentSink.end.lng);
+
               if (this.currentSink !== null) {
                 this.sinks.push(this.currentSink);
               }
@@ -429,7 +432,7 @@ class IGCAnalyzer {
       for (let k in this.thermals) {
         let v = this.thermals[k];
         if (typeof v.merged !== 'undefined') {
-          delete(this.thermals[k]);
+          this.thermals.splice(k, 1);
         }
       }
 
@@ -460,7 +463,7 @@ class IGCAnalyzer {
       for (let k in this.upwinds) {
         let v = this.upwinds[k];
         if (typeof v.merged !== 'undefined') {
-          delete(this.upwinds[k]);
+          this.upwinds.splice(k, 1);
         }
       }
 
@@ -491,7 +494,7 @@ class IGCAnalyzer {
       for (let k in this.sinks) {
         let v = this.sinks[k];
         if (typeof v.merged !== 'undefined') {
-          delete(this.sinks[k]);
+          this.sinks.splice(k, 1);
         }
       }
 
@@ -816,7 +819,7 @@ class IGCAnalyzer {
       }
 
     }
-    console.log(JSON.stringify(this.thermals, null, 4));
+    console.log(JSON.stringify(this.thermals[1], null, 4));
     return {
       'metadata': this.metadata,
       'track': this.track,
