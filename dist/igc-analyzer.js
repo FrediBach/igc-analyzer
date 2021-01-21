@@ -33,7 +33,7 @@ class IGCAnalyzer {
 
     this.lines = []; // all lines in the igc file
     this.fixes = []; // all gps fixes
-    this.metadata = []; // all the metadata found
+    this.metadata = {}; // all the metadata found
     this.fixadditions = []; // all additional data to be found in a fix
 
     this.lastfix = []; // Last fix used to calculate new fix values
