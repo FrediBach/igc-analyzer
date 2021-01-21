@@ -1,6 +1,8 @@
 'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+function _interopDefault(ex) {
+  return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex;
+}
 
 var _ = _interopDefault(require('lodash'));
 var ss = _interopDefault(require('simple-statistics'));
@@ -38,13 +40,13 @@ class IGCAnalyzer {
     this.minStepDuration = 1; // In seconds, duration between saved fixes
 
     this.thermals = []; // All major thermals, with metadata
-    this.currentThermal = []; // Data of the current thermal
+    this.currentThermal = {}; // Data of the current thermal
 
     this.upwinds = []; // All major upwind (soaring) areas
-    this.currentUpwind = []; // Current upwind area
+    this.currentUpwind = {}; // Current upwind area
 
     this.sinks = []; // All major sink areas, with metadata
-    this.currentSink = []; // Data of the current sink area
+    this.currentSink = {}; // Data of the current sink area
 
     this.windspeeds = []; // All windspeeds (taken from thermals)
 
@@ -304,7 +306,7 @@ class IGCAnalyzer {
 
           }
 
-          this.currentThermal = [];
+          this.currentThermal = {};
 
         }
 
@@ -346,7 +348,7 @@ class IGCAnalyzer {
 
           }
 
-          this.currentUpwind = [];
+          this.currentUpwind = {};
 
         }
 
@@ -388,7 +390,7 @@ class IGCAnalyzer {
 
           }
 
-          this.currentSink = [];
+          this.currentSink = {};
 
         }
 
@@ -808,7 +810,7 @@ class IGCAnalyzer {
       }
 
     }
-
+    //console.log(this.track);
     return {
       'metadata': this.metadata,
       'track': this.track,
@@ -1334,6 +1336,5 @@ class IGCAnalyzer {
 
 
 }
-
 
 module.exports = IGCAnalyzer;
